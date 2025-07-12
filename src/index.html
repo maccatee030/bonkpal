@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BonkPal</title>
+    <link rel="icon" href="./assets/iconhead.png" type="image/png" />
+    <link href="./output.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+    <style>
+        .font-retro {
+            font-family: 'VT323', monospace;
+        }
+    </style>
+</head>
+
+<body class="font-retro text-white min-h-screen w-screen overflow-x-hidden overflow-y-auto relative" style="
+    background-image: 
+      url('https://letsbonk.fun/logos/bonk-transparent.svg'),
+      linear-gradient(to bottom right, #FF5C01, #FFD700);
+    background-repeat: repeat, no-repeat;
+    background-size: 200px, cover;
+    background-position: top left, center;
+    background-attachment: fixed;
+  ">
+
+    <div id="desktop" class="w-full h-full relative">
+
+        <div class="absolute top-4 left-4 flex flex-col items-center space-y-4">
+            <a href="#bonk" class="flex flex-col items-center group focus:outline-none">
+                <img src="./assets/bonkpx.png" class="w-10 h-10 draggable-false drop-shadow-lg" />
+                <span class="text-lg mt-1 group-focus:bg-blue-800 group-focus:px-1 drop-shadow-lg">Bonk</span>
+            </a>
+
+            <a href="#dexscreener" class="flex flex-col items-center group focus:outline-none">
+                <img src="./assets/dexpx.png" class="w-10 h-10 draggable-false drop-shadow-lg" />
+                <span class="text-lg mt-1 group-focus:bg-blue-800 group-focus:px-1 drop-shadow-lg">Dexscreener</span>
+            </a>
+
+            <a href="#twitter" class="flex flex-col items-center group focus:outline-none">
+                <img src="./assets/twpx.png" class="w-10 h-10 draggable-false drop-shadow-lg" />
+                <span class="text-lg mt-1 group-focus:bg-blue-800 group-focus:px-1 drop-shadow-lg">Twitter</span>
+            </a>
+        </div>
+
+        <div class="flex items-center justify-center min-h-screen px-4">
+            <div id="lpcWindow" class="bg-gray-100 text-black shadow-inner w-fit">
+                <div
+                    class="relative flex items-center justify-between px-2 h-6 bg-gradient-to-b from-[#3a3a3a] to-[#1f1f1f] border-b border-black">
+                    <div class="flex items-center gap-2 z-10">
+                        <img src="./assets/iconhead.png" alt="App Icon" class="w-4 h-4" />
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <span
+                            class="text-white text-lg leading-none drop-shadow-[1px_1px_0_rgba(0,0,0,0.7)] select-none">
+                            BonkPal</span>
+                    </div>
+                    <div class="flex items-center space-x-[1px] z-10">
+                        <button
+                            class="w-4 h-4 bg-[#d4d0c8] border border-black flex items-center justify-center text-[10px] leading-none">
+                            &minus;
+                        </button>
+                        <button
+                            class="w-4 h-4 bg-[#d4d0c8] border border-black flex items-center justify-center text-[10px] leading-none">
+                            ☐
+                        </button>
+                        <button
+                            class="w-4 h-4 bg-[#d4d0c8] border border-black flex items-center justify-center text-[10px] leading-none text-red-800 font-bold">
+                            ✕
+                        </button>
+                    </div>
+                </div>
+
+                <div class="px-4 py-8 bg-neutral-500">
+                    <div class="flex flex-col md:flex-row items-start justify-center gap-6">
+                        <div
+                            class="bg-yellow-400 px-12 py-3 rounded-sm space-y-2 border border-white outline-2 outline-black">
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-4">
+                                    <label for="genderSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Body</label>
+                                    <select id="genderSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="hairSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Hair</label>
+                                    <select id="hairSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="hairColorSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Hair
+                                        Color</label>
+                                    <select id="hairColorSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="eyeColorSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Eye
+                                        Color</label>
+                                    <select id="eyeColorSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="beardSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Beard</label>
+                                    <select id="beardSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="mustacheSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Moustache</label>
+                                    <select id="mustacheSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-center justify-center">
+                            <canvas id="charCanvas" width="256" height="256"
+                                style="width: 256px; height: 256px; image-rendering: pixelated;">
+                            </canvas>
+                        </div>
+
+                        <div
+                            class="bg-yellow-500 px-12 py-3 rounded-sm space-y-4 border border-white outline-2 outline-black">
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-4">
+                                    <label for="hatSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Hat</label>
+                                    <select id="hatSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="torsoSelect" class="text-neutral-900 text-right whitespace-nowrap">Torso
+                                        Clothing</label>
+                                    <select id="torsoSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="pantsSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Pants</label>
+                                    <select id="pantsSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="shoesSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Shoes</label>
+                                    <select id="shoesSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="leftHandWeaponSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Left Hand Item</label>
+                                    <select id="leftHandWeaponSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="rightHandWeaponSelect"
+                                        class="text-neutral-900 text-right whitespace-nowrap">Right Hand Item</label>
+                                    <select id="rightHandWeaponSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <label for="petSelect" class="text-black font-bold whitespace-nowrap">Pet</label>
+                                    <select id="petSelect"
+                                        class="text-center w-32 p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black ml-auto">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 flex flex-col items-center gap-4">
+                        <div class="flex items-center gap-2">
+                            <label for="bgColorPicker" class="text-xs text-white">Canvas BG:</label>
+                            <input type="color" id="bgColorPicker" value="#808080"
+                                class="appearance-none w-8 h-8 rounded-sm border border-white outline-2 outline-black bg-orange-500 hover:bg-orange-500/40 transition-all" />
+                        </div>
+
+                        <button id="saveButton"
+                            class="px-4 py-2 bg-orange-500 text-white border border-white outline-2 outline-black rounded-sm text-sm hover:bg-orange-700 transition-all">
+                            Save as .png
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="fixed bottom-0 left-0 w-full h-8 bg-gradient-to-b from-[#3a3a3a] to-[#1f1f1f] border-t border-black flex items-center justify-between z-50 text-sm">
+
+            <div class="relative">
+                <button id="startBtn" class="flex items-center gap-2 px-2 py-1 h-full 
+              bg-gradient-to-b from-[#6e6e6e] to-[#444444] 
+              text-white text-xs border border-t-white border-l-white border-b-black border-r-black shadow-inner">
+                    <img src="./assets/iconhead.png" alt="start" class="w-4 h-4" />
+                    <span>Start</span>
+                </button>
+
+                <div id="startMenu"
+                    class="hidden absolute bottom-8 left-0 w-48 bg-[#2e2e2e] border border-black shadow-lg z-50 rounded-sm">
+                    <div class="bg-orange-600 text-white px-2 py-1 text-xs font-bold">TrenchPal</div>
+                    <ul class="p-2 space-y-1 text-white text-xs">
+                        <li
+                            class="flex items-center gap-2 cursor-pointer hover:bg-blue-800 hover:text-white px-1 py-[2px]">
+                            <img src="./assets/bonkpx.png" class="w-4 h-4" />
+                            Bonk
+                        </li>
+                        <li
+                            class="flex items-center gap-2 cursor-pointer hover:bg-blue-800 hover:text-white px-1 py-[2px]">
+                            <img src="./assets/dexlogo.png" class="w-4 h-4" />
+                            Dexscreener
+                        </li>
+                        <li
+                            class="flex items-center gap-2 cursor-pointer hover:bg-blue-800 hover:text-white px-1 py-[2px]">
+                            <img src="./assets/twlogo.png" class="w-4 h-4" />
+                            Twitter
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="clock" class="text-white text-xs px-3 font-mono"></div>
+        </div>
+
+        <script type="module" src="./chargen.js"></script>
+        <script>
+            document.getElementById("saveButton").addEventListener("click", () => {
+                const canvas = document.getElementById("charCanvas")
+                const image = canvas.toDataURL("image/png")
+                const link = document.createElement("a")
+                link.href = image
+                link.download = "character.png"
+                link.click()
+            })
+        </script>
+
+        <script>
+            const clock = document.getElementById("clock");
+            function updateClock() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, "0");
+                const minutes = String(now.getMinutes()).padStart(2, "0");
+                clock.textContent = `${hours}:${minutes}`;
+            }
+            setInterval(updateClock, 1000);
+            updateClock();
+
+            const startBtn = document.getElementById("startBtn");
+            const startMenu = document.getElementById("startMenu");
+
+            startBtn.addEventListener("click", () => {
+                startMenu.classList.toggle("hidden");
+            });
+
+            document.addEventListener("click", (e) => {
+                if (!startBtn.contains(e.target) && !startMenu.contains(e.target)) {
+                    startMenu.classList.add("hidden");
+                }
+            });
+        </script>
+
+        <script>
+            const canvas = document.getElementById("charCanvas");
+            const bgColorPicker = document.getElementById("bgColorPicker");
+
+            bgColorPicker.addEventListener("input", () => {
+                canvas.style.backgroundColor = bgColorPicker.value;
+            });
+        </script>
+</body>
+
+</html>
