@@ -13,8 +13,13 @@
             font-family: 'VT323', monospace;
         }
 
-        /* Mobile-specific styles for app icons */
+        /* Mobile-specific styles for app icons and contract box */
         @media (max-width: 767px) {
+            body {
+                padding-bottom: 90px;
+                /* To make space for the fixed contract address box */
+            }
+
             .mobile-app-icons {
                 display: flex;
                 flex-direction: row;
@@ -29,6 +34,33 @@
             .mobile-app-icons a {
                 margin: 0;
                 /* Remove default margins from desktop positioning */
+            }
+
+            .contract-address-box {
+                position: fixed;
+                bottom: 1rem;
+                /* 4px from bottom */
+                left: 1rem;
+                /* 4px from left */
+                right: 1rem;
+                /* 4px from right */
+                width: auto;
+                /* Allow it to take available width */
+                z-index: 50;
+                /* Ensure it's above other content and the taskbar */
+            }
+        }
+
+        /* Desktop positioning for the contract address box */
+        @media (min-width: 768px) {
+            .contract-address-box {
+                position: absolute;
+                top: 2rem;
+                /* 8px from top */
+                right: 2rem;
+                /* 8px from right */
+                z-index: 20;
+                /* Ensure it's above other elements if needed */
             }
         }
     </style>
@@ -62,7 +94,6 @@
                 <span class="text-lg mt-1 group-focus:bg-blue-800 group-focus:px-1 drop-shadow-lg">Twitter</span>
             </a>
         </div>
-
 
         <div class="flex flex-col items-center justify-center min-h-screen px-4">
             <div class="md:hidden mobile-app-icons mt-10">
@@ -240,6 +271,15 @@
             </div>
         </div>
 
+        <div id="contractAddressBox"
+            class="contract-address-box bg-yellow-400 px-6 py-2 rounded-sm border border-white outline-2 outline-black flex flex-col items-center justify-center cursor-copy hover:bg-yellow-300 transition-colors duration-200">
+            <p class="text-neutral-900 text-lg whitespace-nowrap drop-shadow-lg">Contract Address:</p>
+            <p id="contractAddress"
+                class="text-center p-2 rounded bg-orange-500 text-white border border-white outline-2 outline-black text-sm break-all font-mono drop-shadow-lg">
+                0xYOURCONTRACTADDRESSHERE</p>
+            <span id="copyFeedback" class="text-xs text-neutral-900 mt-1 hidden">Copied!</span>
+        </div>
+
         <div
             class="fixed bottom-0 left-0 w-full h-8 bg-gradient-to-b from-[#3a3a3a] to-[#1f1f1f] border-t border-black flex items-center justify-between z-50 text-sm">
 
@@ -311,6 +351,24 @@
                 if (!startBtn.contains(e.target) && !startMenu.contains(e.target)) {
                     startMenu.classList.add("hidden");
                 }
+            });
+
+            // Contract Address Copy functionality
+            const contractAddressBox = document.getElementById('contractAddressBox');
+            const contractAddress = document.getElementById('contractAddress');
+            const copyFeedback = document.getElementById('copyFeedback');
+
+            contractAddressBox.addEventListener('click', () => {
+                const addressToCopy = contractAddress.textContent;
+                navigator.clipboard.writeText(addressToCopy).then(() => {
+                    copyFeedback.classList.remove('hidden');
+                    setTimeout(() => {
+                        copyFeedback.classList.add('hidden');
+                    }, 2000); // Hide "Copied!" after 2 seconds
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                    alert('Failed to copy the address. Please try again or copy manually.');
+                });
             });
         </script>
 
