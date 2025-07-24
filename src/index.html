@@ -12,11 +12,30 @@
         .font-retro {
             font-family: 'VT323', monospace;
         }
+
+        /* Mobile-specific styles for app icons */
+        @media (max-width: 767px) {
+            .mobile-app-icons {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+                /* Adjust gap as needed */
+                width: 100%;
+                margin-bottom: 20px;
+                /* Space between icons and generator */
+            }
+
+            .mobile-app-icons a {
+                margin: 0;
+                /* Remove default margins from desktop positioning */
+            }
+        }
     </style>
 </head>
 
 <body class="font-retro text-white min-h-screen w-screen overflow-x-hidden overflow-y-auto relative" style="
-    background-image: 
+    background-image:
       url('https://letsbonk.fun/logos/bonk-transparent.svg'),
       linear-gradient(to bottom right, #FF5C01, #FFD700);
     background-repeat: repeat, no-repeat;
@@ -27,7 +46,7 @@
 
     <div id="desktop" class="w-full h-full relative">
 
-        <div class="absolute top-4 left-4 flex flex-col items-center space-y-4">
+        <div class="hidden md:flex absolute top-4 left-4 flex-col items-center space-y-4">
             <a href="#bonk" class="flex flex-col items-center group focus:outline-none">
                 <img src="./assets/bonkpx.png" class="w-10 h-10 draggable-false drop-shadow-lg" />
                 <span class="text-lg mt-1 group-focus:bg-blue-800 group-focus:px-1 drop-shadow-lg">Bonk</span>
@@ -44,7 +63,26 @@
             </a>
         </div>
 
-        <div class="flex items-center justify-center min-h-screen px-4">
+
+        <div class="flex flex-col items-center justify-center min-h-screen px-4">
+            <div class="md:hidden mobile-app-icons mt-10">
+                <a href="#bonk" class="flex flex-col items-center group focus:outline-none">
+                    <img src="./assets/bonkpx.png" class="w-10 h-10 draggable-false drop-shadow-lg" />
+                    <span class="text-lg mt-1 group-focus:bg-blue-800 group-focus:px-1 drop-shadow-lg">Bonk</span>
+                </a>
+
+                <a href="#dexscreener" class="flex flex-col items-center group focus:outline-none">
+                    <img src="./assets/dexpx.png" class="w-10 h-10 draggable-false drop-shadow-lg" />
+                    <span
+                        class="text-lg mt-1 group-focus:bg-blue-800 group-focus:px-1 drop-shadow-lg">Dexscreener</span>
+                </a>
+
+                <a href="#twitter" class="flex flex-col items-center group focus:outline-none">
+                    <img src="./assets/twpx.png" class="w-10 h-10 draggable-false drop-shadow-lg" />
+                    <span class="text-lg mt-1 group-focus:bg-blue-800 group-focus:px-1 drop-shadow-lg">Twitter</span>
+                </a>
+            </div>
+
             <div id="lpcWindow" class="bg-gray-100 text-black shadow-inner w-fit">
                 <div
                     class="relative flex items-center justify-between px-2 h-6 bg-gradient-to-b from-[#3a3a3a] to-[#1f1f1f] border-b border-black">
@@ -206,8 +244,8 @@
             class="fixed bottom-0 left-0 w-full h-8 bg-gradient-to-b from-[#3a3a3a] to-[#1f1f1f] border-t border-black flex items-center justify-between z-50 text-sm">
 
             <div class="relative">
-                <button id="startBtn" class="flex items-center gap-2 px-2 py-1 h-full 
-              bg-gradient-to-b from-[#6e6e6e] to-[#444444] 
+                <button id="startBtn" class="flex items-center gap-2 px-2 py-1 h-full
+              bg-gradient-to-b from-[#6e6e6e] to-[#444444]
               text-white text-xs border border-t-white border-l-white border-b-black border-r-black shadow-inner">
                     <img src="./assets/iconhead.png" alt="start" class="w-4 h-4" />
                     <span>Start</span>
